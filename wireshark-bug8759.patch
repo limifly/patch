@@ -1,0 +1,13 @@
+Index: epan/dissectors/packet-bt-dht.c
+===================================================================
+--- epan/dissectors/packet-bt-dht.c	(revision 49709)
++++ epan/dissectors/packet-bt-dht.c	(working copy)
+@@ -280,6 +280,8 @@
+   col_append_fstr( pinfo->cinfo, COL_INFO, "reply=%d peers ", peer_index );
+   *result = ep_strdup_printf("%d peers", peer_index);
+ 
++  //Add 1 to offset to skip the 'e' which indicates the end of peer list
++  offset += 1;
+   return offset;
+ }
+ 
